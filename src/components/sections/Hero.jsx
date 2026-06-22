@@ -1,5 +1,8 @@
 function Hero() {
-    return <></>
+    return 
+    <>
+    <p></p>
+    </>
 }
 
 export default Hero;
