@@ -71,3 +71,26 @@ export const projects = [
     live: "https://onemoreepisode.vercel.app",
   },
 ]
+
+export const skills = [
+  {
+    category: "Frontend",
+    items: ["React 18", "TypeScript", "Tailwind CSS v4", "Vite", "React Router v6", "Zustand", "TanStack Query"]
+  },
+  {
+    category: "Backend & APIs",
+    items: ["Node.js", "Vercel Serverless", "Resend", "REST APIs"]
+  },
+  {
+    category: "Tools",
+    items: ["Git & GitHub", "VS Code", "Figma", "Ubuntu", "Vercel"]
+  }
+]
+
+export const contactData = {
+  heading: "Let's work together",
+  subtext: "Open to frontend roles, freelance projects, and collaborations. Drop me a message and I'll get back within 24 hours.",
+  email: "athanas@email.com",
+  github: "https://github.com/Mwandii",
+  linkedin: "https://linkedin.com/in/mwandi",
+}
