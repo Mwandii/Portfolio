@@ -28,11 +28,11 @@ export const aboutData = {
   ]
 }
 
-import kandyImg from "./assets/projects/kandy.png"
-import kelijahImg from "./assets/projects/kelijah.png"
-import elumeImg from "./assets/projects/elume.png"
-import sneakersImg from "./assets/projects/sneakers.png"
-import oneMoreImg from "./assets/projects/onemore.png"
+import kandyImg from "../assets/projects/kandy.png"
+import kelijahImg from "../assets/projects/kelijah.png"
+import elumeImg from "../assets/projects/elume.png"
+import sneakersImg from "../assets/projects/sneakers.png"
+import oneMoreImg from "../assets/projects/onemore.png"
 
 export const projects = [
   {
@@ -40,34 +40,34 @@ export const projects = [
     description: "Multi-vendor e-commerce platform with API-ready data architecture, category routing, and a full WhatsApp order flow.",
     tech: ["React", "Vite", "Tailwind CSS", "React Router"],
     image: kandyImg,
-    live: "https://your-kandy-url.vercel.app",
+    live: "https://kandy-store.vercel.app",
   },
   {
     title: "Kelijah Auto Spares",
     description: "Industrial brutalist aesthetic site with WhatsApp booking flow and a fully decoupled data layer ready for backend integration.",
     tech: ["React 18", "Vite", "Tailwind v4"],
     image: kelijahImg,
-    live: "https://your-kelijah-url.vercel.app",
+    live: "https://kelijah.vercel.app",
   },
   {
-    title: "Élume Décor Events",
+    title: "Graken Events",
     description: "Event company site with serverless contact form via Resend and static content architecture for fast load times.",
     tech: ["React", "Resend", "Vercel"],
     image: elumeImg,
-    live: "https://your-elume-url.vercel.app",
+    live: "https://grakenevents.vercel.app",
   },
   {
     title: "Mwandi's Sneakers",
     description: "Sneaker e-commerce store with catalogue, category routing, M-Pesa payment flow, and same-day delivery via WhatsApp.",
     tech: ["React", "Vite", "Tailwind CSS", "React Router"],
     image: sneakersImg,
-    live: "https://your-sneakers-url.vercel.app",
+    live: "https://mwandissneakers.vercel.app",
   },
   {
     title: "One More Episode",
     description: "TV show discovery app powered by the TMDB API with global state via Zustand and server state via TanStack Query.",
     tech: ["React", "Zustand", "TanStack Query", "TMDB API"],
     image: oneMoreImg,
-    live: "https://your-onemore-url.vercel.app",
+    live: "https://onemoreepisode.vercel.app",
   },
 ]
