@@ -7,25 +7,24 @@ export const navLinks = [
 ]
 
 export const heroPhrases = [
-  "clean interfaces",
-  "fast experiences", 
+  "clean interfaces", 
   "scalable products",
   "pixel-perfect UIs",
   "ideas into reality",
 ]
 
 export const aboutData = {
-  heading: "Freelance dev turned job-ready engineer",
-  bio: [
-    "ALX Africa software engineering graduate with hands-on experience building real client projects — from e-commerce stores to event company sites.",
-    "Currently open to junior–mid frontend roles, locally in Nairobi or remote."
-  ],
-  stats: [
-    { value: "8+", label: "Client projects" },
-    { value: "1yr+", label: "Freelancing" },
-    { value: "ALX", label: "Certified" },
-    { value: "React", label: "Primary stack" },
-  ]
+  heading: "Building the web, one component at a time.",
+bio: [
+  "Frontend developer with real-world experience shipping client projects — e-commerce platforms, booking systems, event company sites, and more.",
+  "I write clean, maintainable React code and care deeply about performance, accessibility, and getting the details right."
+],
+stats: [
+  { value: "10+", label: "Projects shipped" },
+  { value: "1yr+", label: "Industry experience" },
+  { value: "React", label: "Primary stack" },
+  { value: "Open", label: "To opportunities" },
+]
 }
 
 import kandyImg from "../assets/projects/kandy.png"
@@ -75,7 +74,7 @@ export const projects = [
 export const skills = [
   {
     category: "Frontend",
-    items: ["React 18", "TypeScript", "Tailwind CSS v4", "Vite", "React Router v6", "Zustand", "TanStack Query"]
+    items: ["React", "JavaScript", "TypeScript", "Tailwind CSS", "Vite", "React Router", "Zustand", "TanStack Query"]
   },
   {
     category: "Backend & APIs",
@@ -83,14 +82,14 @@ export const skills = [
   },
   {
     category: "Tools",
-    items: ["Git & GitHub", "VS Code", "Figma", "Ubuntu", "Vercel"]
+    items: ["Git & GitHub", "VS Code", "Figma", "Linux", "Vercel"]
   }
 ]
 
 export const contactData = {
   heading: "Let's work together",
   subtext: "Open to frontend roles, freelance projects, and collaborations. Drop me a message and I'll get back within 24 hours.",
-  email: "athanas@email.com",
+  email: "athanasmwandi5@gmail.com",
   github: "https://github.com/Mwandii",
-  linkedin: "https://linkedin.com/in/mwandi",
+  linkedin: "https://www.linkedin.com/in/athanas-muinde-223a592bb",
 }

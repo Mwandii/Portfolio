@@ -5,7 +5,7 @@ const defaultForm = { name: "", email: "", message: "" };
 
 function Contact() {
   const [form, setForm] = useState(defaultForm);
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -27,26 +27,29 @@ function Contact() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    setStatus("loading");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+    const { name, email, message } = form;
 
-      if (!res.ok) throw new Error();
-      setStatus("success");
-      setForm(defaultForm);
-    } catch {
-      setStatus("error");
-    }
+    const text = `Hi Mwandi! 👋
+
+*New Portfolio Enquiry*
+
+*Name:* ${name}
+*Email:* ${email}
+
+*Message:*
+${message}`;
+
+    const encoded = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/254715657326?text=${encoded}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+    setStatus("success");
+    setForm(defaultForm);
   }
-
-  const isLoading = status === "loading";
 
   return (
     <section id="contact" ref={sectionRef} className="py-24 px-6 bg-white">
@@ -70,7 +73,7 @@ function Contact() {
             </p>
 
             <div className="flex flex-col gap-4">
-             <a 
+              <a
                 href={`mailto:${contactData.email}`}
                 className="flex items-center gap-3 text-sm text-gray-500 hover:text-indigo-500 transition-colors"
               >
@@ -109,21 +112,37 @@ function Contact() {
                 </span>
                 linkedin.com/in/mwandi
               </a>
+
+              {/* WhatsApp direct link */}
+              <a
+                href="https://wa.me/254718525592"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm text-gray-500 hover:text-green-500 transition-colors"
+              >
+                <span className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                </span>
+                +254 718 525 592
+              </a>
             </div>
           </div>
 
           {/* Right — form */}
           <div className="flex flex-col gap-4">
-
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
                 <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
                 </div>
-                <p className="text-sm font-medium text-gray-900">Message sent</p>
-                <p className="text-xs text-gray-400">I'll get back to you within 24 hours.</p>
+                <p className="text-sm font-medium text-gray-900">WhatsApp opened</p>
+                <p className="text-xs text-gray-400 max-w-xs">
+                  Your message is ready to send — just hit send in WhatsApp.
+                </p>
                 <button
                   onClick={() => setStatus("idle")}
                   className="mt-2 text-xs text-indigo-500 hover:text-indigo-600 transition-colors"
@@ -142,11 +161,10 @@ function Contact() {
                     name="name"
                     type="text"
                     required
-                    disabled={isLoading}
                     value={form.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="w-full px-4 py-2.5 text-sm border border-gray-100 rounded-lg bg-gray-50 text-gray-900 placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 transition disabled:opacity-50"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-100 rounded-lg bg-gray-50 text-gray-900 placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 transition"
                   />
                 </div>
 
@@ -159,11 +177,10 @@ function Contact() {
                     name="email"
                     type="email"
                     required
-                    disabled={isLoading}
                     value={form.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className="w-full px-4 py-2.5 text-sm border border-gray-100 rounded-lg bg-gray-50 text-gray-900 placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 transition disabled:opacity-50"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-100 rounded-lg bg-gray-50 text-gray-900 placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 transition"
                   />
                 </div>
 
@@ -175,32 +192,31 @@ function Contact() {
                     id="message"
                     name="message"
                     required
-                    disabled={isLoading}
                     value={form.message}
                     onChange={handleChange}
                     placeholder="Tell me about your project..."
                     rows={5}
-                    className="w-full px-4 py-2.5 text-sm border border-gray-100 rounded-lg bg-gray-50 text-gray-900 placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 transition resize-none disabled:opacity-50"
+                    className="w-full px-4 py-2.5 text-sm border border-gray-100 rounded-lg bg-gray-50 text-gray-900 placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-300 transition resize-none"
                   />
                 </div>
 
-                {status === "error" && (
-                  <p className="text-xs text-red-400">
-                    Something went wrong. Please try again.
-                  </p>
-                )}
-
                 <button
                   type="submit"
-                  disabled={isLoading}
-                  className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 disabled:opacity-50 transition-colors text-white rounded-lg text-sm font-medium"
+                  className="w-full py-2.5 bg-green-500 hover:bg-green-600 transition-colors text-white rounded-lg text-sm font-medium flex items-center justify-center gap-2"
                 >
-                  {isLoading ? "Sending..." : "Send message"}
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  Send via WhatsApp
                 </button>
+
+                <p className="text-center text-xs text-gray-300">
+                  Opens WhatsApp with your message pre-filled
+                </p>
               </form>
             )}
-
           </div>
+
         </div>
       </div>
     </section>

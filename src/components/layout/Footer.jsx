@@ -81,9 +81,6 @@ function Footer() {
           <p className="text-xs text-gray-300">
             © {year} Athanas Muinde. All rights reserved.
           </p>
-          <p className="text-xs text-gray-300">
-            Built with React + Vite + Tailwind CSS
-          </p>
         </div>
 
       </div>

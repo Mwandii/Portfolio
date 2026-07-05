@@ -29,15 +29,12 @@ function CodeBlock() {
 
   return (
     <div className="w-full max-w-md rounded-2xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-100/80">
-      {/* Terminal top bar */}
       <div className="flex items-center gap-2 px-4 py-3 bg-gray-900">
         <div className="w-3 h-3 rounded-full bg-red-500" />
         <div className="w-3 h-3 rounded-full bg-yellow-500" />
         <div className="w-3 h-3 rounded-full bg-green-500" />
         <span className="ml-3 text-xs text-gray-500 font-mono">developer.js</span>
       </div>
-
-      {/* Code area */}
       <div className="bg-gray-950 px-6 py-6 font-mono text-sm leading-7 min-h-[280px]">
         {codeLines.slice(0, visibleLines).map((line, i) => (
           <div key={i} className={line.indent ? "pl-6" : ""}>
@@ -75,11 +72,11 @@ function Hero() {
 
   return (
     <section id="home" className="min-h-screen bg-white flex items-center">
-      <div className="max-w-6xl mx-auto px-6 py-24 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 lg:py-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left — text */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5 lg:gap-6">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500" />
               <span className="text-sm text-gray-500">Available for work</span>
@@ -103,7 +100,7 @@ function Hero() {
               polished, production-ready websites.
             </p>
 
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="flex flex-wrap gap-3 pt-1">
               <a
                 href="#projects"
                 className="py-2.5 px-6 bg-indigo-500 hover:bg-indigo-600 transition-colors text-white rounded-lg text-sm font-medium"
@@ -121,7 +118,7 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right — animated code block */}
+          {/* Right — animated code block, desktop only */}
           <div className="hidden lg:flex justify-end">
             <CodeBlock />
           </div>
