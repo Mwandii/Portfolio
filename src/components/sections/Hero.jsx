@@ -71,8 +71,8 @@ function Hero() {
   }, [charIndex, currentPhrase]);
 
   return (
-    <section id="home" className="min-h-screen bg-white flex items-center">
-      <div className="max-w-6xl mx-auto px-6 pt-24 pb-16 lg:py-24 w-full">
+    <section id="home" className=" bg-white flex items-center">
+      <div className="max-w-6xl mx-auto px-6 pt-25  lg:py-24 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left — text */}
