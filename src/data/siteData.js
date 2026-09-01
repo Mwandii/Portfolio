@@ -21,7 +21,7 @@ bio: [
 ],
 stats: [
   { value: "10+", label: "Projects shipped" },
-  { value: "1yr+", label: "Industry experience" },
+  { value: "6 Months+", label: "Industry experience" },
   { value: "React", label: "Primary stack" },
   { value: "Open", label: "To opportunities" },
 ]
@@ -32,6 +32,7 @@ import kelijahImg from "../assets/projects/kelijah.png"
 import elumeImg from "../assets/projects/elume.png"
 import sneakersImg from "../assets/projects/sneakers.png"
 import oneMoreImg from "../assets/projects/onemore.png"
+import kingstonImg from "../assets/projects/kingston.png"
 
 export const projects = [
   {
@@ -68,6 +69,13 @@ export const projects = [
     tech: ["React", "Zustand", "TanStack Query", "TMDB API"],
     image: oneMoreImg,
     live: "https://onemoreepisode.vercel.app",
+  },
+  {
+    title: "Kingston Complex",
+    description: "Full-stack hospitality booking and operations platform with a Supabase-backed admin system — staff auth, row-level security, and a deposit-aware payments and finance module.",
+    tech: ["React", "Vite", "Tailwind CSS", "React Router", "Supabase"],
+    image: kingstonImg,
+    live: "https://kingston-complex.vercel.app",
   },
 ]
 
